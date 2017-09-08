@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="${package}.mapper.DemoMapper">
+    <!--返回值与数据库映射对应关系-->
+    <resultMap type="${package}.pojo.Demo" id="demo">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+    </resultMap>
+    <!--查询列表-->
+    <select id="queryDemoList" resultType="${package}.pojo.Demo">
+        select id, name from demo order by id desc limit 0, 50
+    </select>
+    <!--通过ID查询数据-->
+    <select id="queryDemoById" resultType="${package}.pojo.Demo">
+        select id, name from demo where id = #{id, jdbcType=INTEGER}
+    </select>
+    <!--新增数据，插入对象ID会自动设置为自增的ID-->
+    <insert id="insertDemo" parameterType="${package}.pojo.Demo" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO demo (name) VALUES (#{name, jdbcType=INTEGER})
+    </insert>
+    <!--关系数据-->
+    <update id="updateDemo">
+        update demo set name= #{name, jdbcType=INTEGER} where id = #{id, jdbcType=INTEGER}
+    </update>
+</mapper>

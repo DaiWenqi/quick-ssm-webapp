@@ -1,0 +1,1 @@
+<%@ page language="java" pageEncoding="UTF-8" %>version:${checksrv_version},status:ok

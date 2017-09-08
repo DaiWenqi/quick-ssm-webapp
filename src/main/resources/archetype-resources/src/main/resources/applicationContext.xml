@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+       default-autowire="byName">
+    <!--Spring配置文件-->
+
+    <!-- 不扫描controller 通过注解进行事物管理  -->
+    <context:component-scan base-package="${groupId}">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+    <!--配置文件加载配置-->
+    <import resource="applicationContext-config.xml"/>
+    <!--数据库连接配置-->
+    <import resource="applicationContext-db.xml"/>
+    <!--其他如缓存配置请自行按需添加-->
+</beans>

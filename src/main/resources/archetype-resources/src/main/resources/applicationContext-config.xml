@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+       default-autowire="byName">
+    <bean id="propertiesConfigBean"
+          class="${package}.config.PropertyPlaceholderConfigurerEx">
+        <property name="locations">
+            <list>
+                <!--默认加载本地配置-->
+                <value>classpath:config/local/*.properties</value>
+                <!--覆盖默认配置-->
+                <value>${config.path}/*.properties</value>
+            </list>
+        </property>
+    </bean>
+</beans>
