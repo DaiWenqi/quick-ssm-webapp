@@ -24,3 +24,6 @@ CREATE TABLE `demo` (
     quick-ssm-webapp 改项目artifactId
     1.0.0 改项目版本
 3.如果需要上传到公司svn服务器，可以mvn deploy给其他人用
+
+如果不想自己修改创建，可直接下载target目录下quick-ssm-webapp.jar文件，放入本地maven仓库中
+放入目录com/whh/maven/archetypes/quick-ssm-webapp/1.0.0下
